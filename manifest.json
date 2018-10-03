@@ -1,0 +1,42 @@
+{
+    "manifest_version": 2,
+    "icons": {
+        "16": "img/vIcon-small.png",
+        "48": "img/vIcon-medium.png",
+        "128": "img/vIcon-large.png"
+    },
+    "name": "vMonitor",
+    "short_name": "The Valsto vMonitor",
+    "description": "Valsto Browser Extension",
+    "version": "1.1.10",
+    "browser_action": {
+        "default_title": "My vMonitor",
+		"default_icon": {
+			"16": "img/vIcon-small.png"
+		  }
+    },
+    "background": {
+        "scripts": ["vMonitor.js"]
+    },
+    "permissions": [
+        "cookies",
+        "<all_urls>",
+        "history",
+        "storage"
+    ],
+    "web_accessible_resources": [
+        "vMonitorPublic.html"
+    ],
+    "applications": {
+        "gecko": {
+            "id": "vmonitor@valsto.com",
+            "strict_min_version": "42.0"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://*.valsto.com/*"],
+            "js": ["vMonitor.js"]
+        }
+    ]
+}
